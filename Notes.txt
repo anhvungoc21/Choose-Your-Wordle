@@ -1,0 +1,63 @@
+HTML:
+1) Creating an element
+*ele*.*class*[data-key="*key*"]
+
+-- If nothing is passed as *ele*, create a div
+
+e.g.
+button.key[data-key="Q"]
+=> <button class="key" data-key="Q">Q</button>
+
+2) Using svg:
+Download svg file online, then embed into element with <embed> tag. Specify the height and width.
+
+3. .querySelector(":not()")
+
+
+CSS:
+1) Colors: Can be chosen with the plug-in
+-- hsl()
++ Hue: Color wheel from 0 to 360. 0=red, 120=green, 240=blue
++ Saturation: Percentage value of color. 0% = shade of the color, 100% = the full color
++ Lightness: Percentage black/white. 0%=black, 100%=white
+HSL calculator is available online
+- rgb()
++ Red:
++ Green:
++ Blue
+- HEX Code: Represent RGB color in a hexadecimal way.
+
+2) *ele*::before, *ele*::after
+These are pseudo-elements.
+We use them to apply the CSS right before/after the content WITHIN the element *ele*.
+
+3) Flex:
+
+4) clamp()
+clamps a value between an upper and lower bound. clamp() enables selecting a middle value within a range of values between a defined minimum and maximum. It takes three parameters: a minimum value, a preferred value, and a maximum allowed value.
+
+5) ViewPort:
+The Browser Window Size
+
+6) Relative Units:
+-- em:
+Relative to current font-size of the element.
+
+-- rem:
+Relative to current font-size of the root element.
+
+7) Variables:
+
+VSCode Shortcuts
+1) Copy line up/down
+Alt + Shift + Up/DownArrow
+
+
+
+REGULAR EXPRESSIONS
+1) .match()
+
+
+JavaScript:
+1) Using const vs function to define function:
+- Function: Will get hoisted => Can use anywhere

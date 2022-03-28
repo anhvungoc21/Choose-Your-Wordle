@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>My Wordle Clone</title>
+    <script type="module" src="script.js" defer></script> 
+    <!-- 'defer' means that the script is executed after html doc has been parsed, as opposed to 'async' -->
+  </head>
+  <body>
+    <div class="title">Wordle Clone</div> 
+    <div class="alert-container" data-alert-container="">
+    </div>
+    <div data-guess-grid class="guess-grid">
+      <div class="tile"></div>  
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+    <div data-keyboard class="keyboard">
+      <button class="key" data-key="Q">Q</button>
+      <button class="key" data-key="W">W</button>
+      <button class="key" data-key="E">E</button>
+      <button class="key" data-key="R">R</button>
+      <button class="key" data-key="T">T</button>
+      <button class="key" data-key="Y">Y</button>
+      <button class="key" data-key="U">U</button>
+      <button class="key" data-key="I">I</button>
+      <button class="key" data-key="O">O</button>
+      <button class="key" data-key="P">P</button>
+      <div class="space"></div>
+      <button class="key" data-key="A">A</button>
+      <button class="key" data-key="S">S</button>
+      <button class="key" data-key="D">D</button>
+      <button class="key" data-key="F">F</button>
+      <button class="key" data-key="G">G</button>
+      <button class="key" data-key="H">H</button>
+      <button class="key" data-key="J">J</button>
+      <button class="key" data-key="K">K</button>
+      <button class="key" data-key="L">L</button>
+      <div class="space"></div>
+      <button data-enter class="key large">Enter</button>
+      <button class="key" data-key="Z">Z</button>
+      <button class="key" data-key="X">X</button>
+      <button class="key" data-key="C">C</button>
+      <button class="key" data-key="V">V</button>
+      <button class="key" data-key="B">B</button>
+      <button class="key" data-key="N">N</button>
+      <button class="key" data-key="M">M</button>
+      <button data-delete class="key large">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M490.667,64H133.077c-7.196,0-13.906,3.627-17.848,9.647L3.485,244.314c-4.647,7.098-4.647,16.274,0,23.372
+                l111.744,170.667c3.942,6.02,10.652,9.647,17.848,9.647h357.589c11.782,0,21.333-9.551,21.333-21.333V85.333
+                C512,73.551,502.449,64,490.667,64z M469.333,405.333H144.609L46.833,256l97.776-149.333h324.725V405.333z"
+          />
+          <path
+            d="M198.246,356.418c8.331,8.331,21.839,8.331,30.17,0l70.248-70.248l70.248,70.248c8.331,8.331,21.839,8.331,30.17,0
+                s8.331-21.839,0-30.17L328.834,256l70.248-70.248c8.331-8.331,8.331-21.839,0-30.17s-21.839-8.331-30.17,0l-70.248,70.248
+                l-70.248-70.248c-8.331-8.331-21.839-8.331-30.17,0c-8.331,8.331-8.331,21.839,0,30.17L268.495,256l-70.248,70.248
+                C189.915,334.58,189.915,348.087,198.246,356.418z"
+          />
+        </svg>
+      </button>
+    </div>
+  </body>
+</html>
