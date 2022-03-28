@@ -80,7 +80,7 @@ const danceTiles = function (tiles) {
 
 const checkWinLose = function (guess, tiles) {
   // Win
-  if (guess == targetWord) {
+  if (guess === targetWord) {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
     const timeTillTomorrow = 24 * 60 * 60 * 1000 - (new Date() - todayStart);
@@ -95,12 +95,12 @@ const checkWinLose = function (guess, tiles) {
     danceTiles(tiles);
     endUserInteraction();
     return;
-  }
+  } 
 
   // Loss
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
   if (remainingTiles.length === 0) {
-    displayAlert(`The word was ${targetWord.toUpperCase}`, null);
+    displayAlert(`The word was ${targetWord.toUpperCase}`, 10000);
     endUserInteraction();
   }
 };
