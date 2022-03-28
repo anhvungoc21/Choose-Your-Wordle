@@ -45,7 +45,7 @@ const displayAlert = function (message, duration = 1000) {
   } else {
     alert.remove();
     createAlert(message, duration);
-  }
+  } 
 };
 
 // Shaking animation when guess submission is invalid
@@ -90,7 +90,7 @@ const checkWinLose = function (guess, tiles) {
     );
     displayAlert(
       `You Win! Time until next word: ${hours} hours and ${minutes} minutes`,
-      50000
+      5000
     );
     danceTiles(tiles);
     endUserInteraction();
