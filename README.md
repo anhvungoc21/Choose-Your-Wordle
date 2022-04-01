@@ -5,7 +5,7 @@ A clone of the game Wordle!
 
 ## Instructions
 
-To play the game, please go to https://wordle-clone-anhvu.herokuapp.com/
+To play the game, please go to https://wordle-clone-anhvu.herokuapp.com/.
 
 
 ## Potential Future Features
