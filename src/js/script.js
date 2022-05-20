@@ -31,11 +31,54 @@ const state = {
   },
 };
 
+const decreaseRow = function () {
+  const tiles = guessGrid.querySelectorAll(".tile");
+  const activeTiles = guessGrid.querySelectorAll("[data-state]");
+  if (
+    tiles.length === MIN_TILES_COUNT ||
+    tiles.length === activeTiles.length + TILES_PER_ROW
+  )
+    return;
+  for (let i = tiles.length - 5; i < tiles.length; i++) {
+    tiles[i].classList.add("removed");
+    tiles[i].addEventListener("transitionend", () => {
+      tiles[i].remove();
+    });
+  }
+  // Update row count
+  rowCountSpan.dataset.rowCount =
+    (tiles.length - TILES_PER_ROW) / TILES_PER_ROW;
+  rowCountSpan.textContent = `${rowCountSpan.dataset.rowCount}`;
+
+  btnDecreaseRow.blur();
+};
+
+const increaseRow = function () {
+  const tiles = guessGrid.querySelectorAll(".tile");
+  if (tiles.length === MAX_TILES_COUNT) return;
+  guessGrid.insertAdjacentHTML(
+    "beforeend",
+    `
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    `
+  );
+  // Update row count
+  rowCountSpan.dataset.rowCount =
+    (tiles.length + TILES_PER_ROW) / TILES_PER_ROW;
+  rowCountSpan.textContent = `${rowCountSpan.dataset.rowCount}`;
+  btnIncreaseRow.blur();
+};
 // Event listeners
 const beginUserInteraction = function () {
   document.addEventListener("keydown", handleKeyPress);
   document.addEventListener("click", handleMouseClick);
-  btnDecreaseRow.addEventListener("click", decreaseRow);
+  btnDecreaseRow.addEventListener("click", function () {
+    decreaseRow();
+  });
   btnIncreaseRow.addEventListener("click", increaseRow);
   btnUnlimited.addEventListener("click", toggleUnlim);
   btnDarkMode.addEventListener("click", toggleDarkMode);
@@ -114,47 +157,6 @@ const resetGrid = function () {
 
 //////////////////////////////////////////////////////////////////
 // USER CONFIGURATION FUNCTIONS
-const decreaseRow = function () {
-  const tiles = guessGrid.querySelectorAll(".tile");
-  const activeTiles = guessGrid.querySelectorAll("[data-state]");
-  if (
-    tiles.length === MIN_TILES_COUNT ||
-    tiles.length === activeTiles.length + TILES_PER_ROW
-  )
-    return;
-  for (let i = tiles.length - 5; i < tiles.length; i++) {
-    tiles[i].classList.add("removed");
-    tiles[i].addEventListener("transitionend", () => {
-      tiles[i].remove();
-    });
-  }
-  // Update row count
-  rowCountSpan.dataset.rowCount =
-    (tiles.length - TILES_PER_ROW) / TILES_PER_ROW;
-  rowCountSpan.textContent = `${rowCountSpan.dataset.rowCount}`;
-
-  btnDecreaseRow.blur();
-};
-
-const increaseRow = function () {
-  const tiles = guessGrid.querySelectorAll(".tile");
-  if (tiles.length === MAX_TILES_COUNT) return;
-  guessGrid.insertAdjacentHTML(
-    "beforeend",
-    `
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-    `
-  );
-  // Update row count
-  rowCountSpan.dataset.rowCount =
-    (tiles.length + TILES_PER_ROW) / TILES_PER_ROW;
-  rowCountSpan.textContent = `${rowCountSpan.dataset.rowCount}`;
-  btnIncreaseRow.blur();
-};
 
 const toggleDarkMode = function () {
   const css = document.querySelector("[rel='stylesheet']");
@@ -219,7 +221,7 @@ const displayModal = function () {
   });
   // Hide protruding buttons:
   btnUnlimited.style.display = "none";
-  
+
   // Display modal
   modal.classList.remove("hidden");
   // Display overlay
@@ -263,7 +265,9 @@ const checkWinLoseUnlim = function (guess, tiles) {
     displayAlert(`You Win!`, 2000);
 
     // Update state
-    winCounter.textContent = winCounter.dataset.winCount++;
+
+    winCounter.dataset.winCount = parseInt(winCounter.dataset.winCount) + 1;
+    winCounter.textContent = winCounter.dataset.winCount;
     state.playerRecord.wins++;
     state.wordIndex++;
     generateWord();
@@ -282,8 +286,7 @@ const checkWinLoseUnlim = function (guess, tiles) {
     displayAlert(`The word was ${targetWord.toUpperCase()}!`, 2000);
 
     // Update state
-    const lossCounter = document.querySelector("[data-loss-count]");
-    lossCounter.dataset.lossCount++;
+    lossCounter.dataset.lossCount = parseInt(lossCounter.dataset.lossCount) + 1;
     lossCounter.textContent = lossCounter.dataset.lossCount;
     state.playerRecord.losses++;
     state.wordIndex++;

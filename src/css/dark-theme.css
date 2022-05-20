@@ -34,6 +34,7 @@ body {
   margin-bottom: 0.4em;
   border-bottom: 1px solid hsl(60, 100%, 98%);
   pointer-events: none;
+  user-select: none;
 }
 
 .left-nav {
@@ -79,7 +80,6 @@ body {
   color: hsl(220, 4%, 14%);
   border-radius: 0.25em; /* Gives round edges*/
   cursor: pointer;
-  user-select: none;
 }
 
 .btn--adjust-row:hover,
@@ -178,6 +178,7 @@ label:active:after {
   right: 0;
   left: 0;
   top: 0;
+  pointer-events: none;
 }
 
 .modal.hidden {
@@ -225,7 +226,7 @@ svg {
   font-size: 2em;
   text-transform: uppercase;
   font-weight: bold;
-  user-select: none;
+  /* user-select: none; */
   transition: transform 250ms linear, padding 25ms ease-in-out,
     opacity 200ms ease-in-out;
 }
