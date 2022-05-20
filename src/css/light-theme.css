@@ -38,7 +38,7 @@ body {
 
 .left-nav {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
 }
 
 .player-record {
@@ -57,15 +57,15 @@ body {
   grid-column-end: 3;
   display: flex;
   gap: 1em;
-  width: 15em;
+  width: 15vw;
   height: inherit;
   place-self: center;
   align-items: center;
 }
 
 .btn--adjust-row {
-  width: 2em;
-  height: 2em;
+  width: 5vh;
+  height: 5vh;
   font-size: 20px;
   border: none;
   padding: 0;
@@ -89,15 +89,15 @@ body {
 
 .switches {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 30% 20% 25% 25%;
   align-items: center;
-  justify-items: center;
-  padding-left: 5%;
-  padding-right: 5%;
+  justify-items: right;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .switch--mode-unlim {
-  padding-left: 20%;
+  padding-left: 10%;
   align-items: center;
   justify-items: center;
 }
@@ -105,6 +105,7 @@ body {
 .switch--mode-dark {
   align-items: center;
   justify-items: center;
+  padding-right: 10%
 }
 
 input[type="checkbox"] {
