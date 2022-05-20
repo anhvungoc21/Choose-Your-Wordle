@@ -9,7 +9,7 @@ const keyboard = document.querySelector("[data-keyboard]");
 const winCounter = document.querySelector("[data-win-count]");
 const lossCounter = document.querySelector("[data-loss-count]");
 const modal = document.querySelector(".modal");
-// const overlay = document.querySelector(".modal-overlay");
+const overlay = document.querySelector(".modal-overlay");
 
 // Buttons
 const btnDecreaseRow = document.querySelector(".btn--decrease-row");
@@ -211,21 +211,21 @@ const displayModal = function () {
   // Add event listener to close button & overlay;
   btnCloseModal.addEventListener("click", function () {
     modal.classList.add("hidden");
-    // overlay.style.opacity = 0;
+    overlay.style.opacity = 0;
     removeEventListener("click", btnCloseModal);
   });
-  // overlay.addEventListener("click", function () {
-  //   modal.classList.add("hidden");
-  //   overlay.style.opacity = 0;
-  //   removeEventListener("click", overlay);
-  // });
+  overlay.addEventListener("click", function () {
+    modal.classList.add("hidden");
+    overlay.style.opacity = 0;
+    removeEventListener("click", overlay);
+  });
   // Hide protruding buttons:
   btnUnlimited.style.display = "none";
 
   // Display modal
   modal.classList.remove("hidden");
   // Display overlay
-  // overlay.style.opacity = 1;
+  overlay.style.opacity = 1;
 };
 
 //////////////////////////////////////////////////////////////////
