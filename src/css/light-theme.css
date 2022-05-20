@@ -1,0 +1,414 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: hsl(60, 100%, 98%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 0.5em;
+  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+
+.nav-bar {
+  display: grid;
+  grid-template-columns: 30vw 40vw 30vw;
+  font-size: medium;
+}
+
+.title {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  place-self: center;
+  font-weight: 600;
+  font-size: 5vmin;
+  color: hsl(220, 4%, 14%);
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0.4em;
+  border-bottom: 1px solid hsl(220, 4%, 14%);
+  pointer-events: none;
+}
+
+.left-nav {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.player-record {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: flex;
+  gap: 3em;
+  width: 15em;
+  height: inherit;
+  place-self: center;
+  align-items: center;
+}
+
+.btns--adjust-row {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  gap: 1em;
+  width: 15em;
+  height: inherit;
+  place-self: center;
+  align-items: center;
+}
+
+.btn--adjust-row {
+  width: 2em;
+  height: 2em;
+  font-size: 20px;
+  border: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(
+    var(--hue, 46),
+    var(--saturation, 14%),
+    calc(var(--lightness-offset, 0%) + var(--lightness, 69%))
+  );
+  color: hsl(60, 100%, 98%);
+  border-radius: 0.25em; /* Gives round edges*/
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn--adjust-row:hover,
+.btn--adjust-row:focus {
+  --lightness-offset: 10%;
+  outline: none;
+}
+
+.switches {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  align-items: center;
+  justify-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.switch--mode-unlim {
+  padding-left: 20%;
+  align-items: center;
+  justify-items: center;
+}
+
+.switch--mode-dark {
+  align-items: center;
+  justify-items: center;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  width: 4vmax;
+  height: 2vmax;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 0.5vmax;
+  left: 0.5vmax;
+  width: 1vmax;
+  height: 1vmax;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: black;
+}
+
+input:checked + label:after {
+  left: 85%;
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 2em;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 0.5em;
+  box-shadow: 0 10px 20px rgba(black, 0.2);
+  left: 50%;
+  max-width: 80vw;
+  max-height: 90vh;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 45em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.modal-overlay {
+  transition: opacity 0.2s ease-out;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.btn--close-modal {
+  appearance: none;
+  align-items: center;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3em;
+}
+
+svg {
+  display: block;
+}
+
+.guess-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(6, 4em);
+  gap: 0.25em;
+  margin-bottom: 1em;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-items: align on the cross axis, justify-content: align on the main axis*/
+
+  border-style: solid;
+  border-width: 0.05em;
+  border-color: hsl(240, 2%, 23%);
+
+  color: hsl(220, 4%, 14%);
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  user-select: none;
+  transition: transform 250ms linear, padding 25ms ease-in-out,
+    opacity 200ms ease-in-out;
+}
+
+.removed {
+  opacity: 0;
+}
+
+/* data-state=active: Has data, but not submitted */
+.tile[data-state="active"] {
+  border-color: hsl(240, 2%, 55%);
+}
+
+.tile[data-state="wrong"] {
+  border: none;
+  background-color: hsl(240, 2%, 30%);
+  color: hsl(60, 100%, 98%);
+}
+
+.tile[data-state="wrong-pos"] {
+  border: none;
+  background-color: hsl(50, 100%, 50%);
+  color: hsl(60, 100%, 98%);
+}
+
+.tile[data-state="correct"] {
+  border: none;
+  background-color: hsl(115, 45%, 55%);
+  color: hsl(60, 100%, 98%);
+}
+
+.tile.shake {
+  animation: shake 300ms ease-in-out;
+}
+
+.tile.flip {
+  transform: rotateX(90deg);
+}
+
+.tile.dance {
+  animation: dance 500ms ease-in-out;
+}
+
+.pop {
+  padding: 1em;
+}
+
+@keyframes shake {
+  20% {
+    transform: translateX(-5%);
+  }
+
+  40% {
+    transform: translateX(5%);
+  }
+
+  60% {
+    transform: translateX(-5%);
+  }
+
+  80% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes dance {
+  20% {
+    transform: translateY(-50%);
+  }
+
+  40% {
+    transform: translateY(10%);
+  }
+
+  60% {
+    transform: translateY(-25%);
+  }
+
+  80% {
+    transform: translateY(5%);
+  }
+
+  90% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(
+    20,
+    minmax(auto, 1.25em)
+  ); /* 10 keys per row => 20 columns so that large key takes up 3 */
+  grid-auto-rows: 3em;
+  gap: 0.25em;
+  justify-content: center;
+}
+
+.key {
+  font-size: inherit;
+  grid-column: span 2;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(
+    var(--hue, 46),
+    var(--saturation, 14%),
+    calc(var(--lightness-offset, 0%) + var(--lightness, 69%))
+  );
+  color: hsl(60, 100%, 98%);
+  fill: hsl(60, 100%, 98%); /* backspace button*/
+  text-transform: uppercase;
+  border-radius: 0.25em; /* Gives round edges*/
+  cursor: pointer;
+  user-select: none;
+}
+
+.key.large {
+  font-size: inherit;
+  grid-column: span 3;
+}
+
+.key > svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* Hover: Mouse hover only. Focus: Mouse click & Keyboard click*/
+.key:hover,
+.key:focus {
+  --lightness-offset: 10%;
+  outline: none;
+}
+
+.key.wrong {
+  --hue: 240;
+  --saturation: 2%;
+  --lightness: 30%;
+}
+
+.key.wrong:hover,
+.key.wrong:focus {
+  --lightness-offset: 0%;
+}
+
+.key.wrong-pos {
+  --hue: 50;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+
+.key.correct {
+  --hue: 115;
+  --saturation: 45%;
+  --lightness: 55%;
+}
+/* correct is defined after wrong-pos so that it can be applied after */
+
+.alert-container {
+  position: fixed;
+  top: 10vh;
+  left: 50vw;
+  transform: translate(-50%);
+  z-index: 1; /* Always show on top */
+  display: flex;
+  align-items: center;
+}
+
+.alert {
+  pointer-events: none;
+  background-color: hsl(60, 100%, 98%);
+  padding: 0.75em;
+  border-radius: 0.25em;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out; /* Fade */
+}
+
+.alert.hide {
+  opacity: 0;
+}
