@@ -19,5 +19,5 @@ WebDevSimplified's Wordle tutorial and Kevin Powel's CSS tutorials have been inc
 
 ---
 
-I've done quite a lot of testing, but if any bugs arise, sorry in advance! :)
-Have fun!
+Feel free to contact me if you have any questions or suggestions. Have fun!
+
