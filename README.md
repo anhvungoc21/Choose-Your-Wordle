@@ -19,6 +19,6 @@ WebDevSimplified's Wordle tutorial and Kevin Powel's CSS tutorials have been inc
 
 ---
 
-Feel free to contact me if you have any questions, suggestions, or concerns about any features of the game. Have fun!
+Feel free to contact me if you have any questions or suggestions about any features of the game. Have fun!
 
 (P/s: I have not optimized the web app for phone/tablet users, please check this out on your computer!)
