@@ -17,6 +17,7 @@ and more...
 ## Acknowledgements
 WebDevSimplified's Wordle tutorial and Kevin Powel's CSS tutorials have been incredibly helpful during my process of writing web app!
 
-I've done quite a lot of testing, but if any bugs arise, sorry in advance! :)
+---
 
+I've done quite a lot of testing, but if any bugs arise, sorry in advance! :)
 Have fun!
