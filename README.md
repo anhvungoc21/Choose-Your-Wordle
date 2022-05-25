@@ -1,7 +1,7 @@
 # Choose Your Wordle
 A customizable adaptation of Wordle!
 
-_Website_: https://choose-your-wordle.netlify.app/
+_Website:_ https://choose-your-wordle.netlify.app/
 
 ## Introduction
 Hi there! Thanks for checking out my take on the game Wordle. I created this customizable version of the game because I felt that the original one, while undoubtedly fun (and addictive), is too limiting. So, I've gone ahead and implemented some features that can be customized according to the user's liking.
