@@ -8,6 +8,7 @@ Hi there! Thanks for checking out my take on the game Wordle. I created this cus
 
 ## Features
 - **Unlimited Mode**: No more waiting 24 hours just to play for a few minutes.
+![UnlimitedMode](https://user-images.githubusercontent.com/93021862/171054082-a2b06746-2643-41b1-874a-273902277169.gif)
 
 - **Dark/light Theme**: (with some of my personal touch on the color scheme)
 ![DarkMode](https://user-images.githubusercontent.com/93021862/171053554-0c0d41b9-8abe-473c-93c2-5d5c13638599.gif)
