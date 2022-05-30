@@ -11,7 +11,8 @@ Hi there! Thanks for checking out my take on the game Wordle. I created this cus
 ![UnlimitedMode](https://user-images.githubusercontent.com/93021862/171054082-a2b06746-2643-41b1-874a-273902277169.gif)
 
 - **Dark/light Theme**: (with some of my personal touch on the color scheme)
-![DarkMode](https://user-images.githubusercontent.com/93021862/171054298-cbbe0420-9ceb-4d1a-8cf3-08c2f8bd33fd.gif)
+![DarkMode](https://user-images.githubusercontent.com/93021862/171054460-ca216f49-7a07-4fc6-9649-dbc94158d922.gif)
+
 
 
 
