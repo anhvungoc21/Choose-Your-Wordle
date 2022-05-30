@@ -13,10 +13,8 @@ Hi there! Thanks for checking out my take on the game Wordle. I created this cus
 - **Dark/light Theme**: (with some of my personal touch on the color scheme)
 ![DarkMode](https://user-images.githubusercontent.com/93021862/171054460-ca216f49-7a07-4fc6-9649-dbc94158d922.gif)
 
-
-
-
 - **Adjustable Guess Count**: How about playing on one guess until you hit it?
+![RowAdjustment](https://user-images.githubusercontent.com/93021862/171054629-c91e1640-c7d1-4c23-9e3d-87e2d04f989a.gif)
 
 ## Features to be implemented:
 - More choices for color schemes
