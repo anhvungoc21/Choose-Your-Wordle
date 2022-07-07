@@ -117,8 +117,8 @@ input[type="checkbox"] {
 
 label {
   cursor: pointer;
-  width: 4vmax;
-  height: 2vmax;
+  width: 3.5vmax;
+  height: 1.75vmax;
   background: grey;
   display: block;
   border-radius: 100px;
@@ -128,7 +128,7 @@ label {
 label:after {
   content: "";
   position: absolute;
-  top: 0.5vmax;
+  top: 0.35vmax;
   left: 0.5vmax;
   width: 1vmax;
   height: 1vmax;
