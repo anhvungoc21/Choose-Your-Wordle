@@ -5,10 +5,6 @@
   font-family: sans-serif;
 }
 
-* {
-  z-index: 1;
-}
-
 body {
   background-color: hsl(220, 4%, 14%);
   display: flex;
@@ -171,11 +167,12 @@ label:active:after {
   flex-direction: column;
   padding: 1em;
   overflow: hidden;
-  z-index: 3;
+  z-index: 1;
 }
 
 .modal-overlay {
   transition: opacity 0.2s ease-out;
+  pointer-events: none;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   opacity: 0;
@@ -183,7 +180,7 @@ label:active:after {
   right: 0;
   left: 0;
   top: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
 .modal.hidden {
@@ -200,7 +197,7 @@ label:active:after {
   right: 0;
   top: 0;
   width: 3em;
-  z-index: 3;
+  z-index: 1;
 }
 
 svg {
@@ -417,6 +414,7 @@ svg {
   border-radius: 0.25em;
   opacity: 1;
   transition: opacity 500ms ease-in-out; /* Fade */
+  user-select: none;
 }
 
 .alert.hide {

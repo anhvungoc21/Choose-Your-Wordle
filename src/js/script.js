@@ -214,14 +214,12 @@ const displayModal = function () {
     overlay.style.opacity = 0;
     removeEventListener("click", btnCloseModal);
     overlay.style["pointer-events"] = "none";
-    overlay.style["z-index"] = 0;
   });
   overlay.addEventListener("click", function () {
     modal.classList.add("hidden");
     overlay.style.opacity = 0;
     removeEventListener("click", overlay);
     overlay.style["pointer-events"] = "none";
-    overlay.style["z-index"] = 1;
   });
 
   // Hide protruding buttons:
@@ -232,7 +230,6 @@ const displayModal = function () {
 
   // Display overlay & Allow clicks on overlay
   overlay.style["pointer-events"] = "initial";
-  overlay.style["z-index"] = 2;
   overlay.style.opacity = 1;
 };
 
