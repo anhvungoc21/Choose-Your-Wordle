@@ -218,13 +218,18 @@ const displayModal = function () {
     modal.classList.add("hidden");
     overlay.style.opacity = 0;
     removeEventListener("click", overlay);
+    // Revert
+    overlay.style["pointer-events"] = "none";
   });
+
   // Hide protruding buttons:
   btnUnlimited.style.display = "none";
 
   // Display modal
   modal.classList.remove("hidden");
-  // Display overlay
+
+  // Display overlay & Allow clicks on overlay
+  overlay.style["pointer-events"] = "initial";
   overlay.style.opacity = 1;
 };
 
